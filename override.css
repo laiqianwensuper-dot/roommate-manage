@@ -1,0 +1,67 @@
+/* V3: Keep the desktop view an app-shaped single reading flow. */
+@media (min-width: 681px) {
+  .app { width: 680px; padding-left: 0; padding-right: 0; }
+  .topbar { width: 680px; }
+  .intro { padding-top: 28px; }
+  .page.active#today { display: block; }
+  .page.active#chores, .page.active#home, .page.active#supplies { max-width: none; margin: 0; }
+  .supply-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.hero-card.complete { background: linear-gradient(145deg, #fff, #edf7ea); border-color: #d9ead4; }
+.hero-card.complete .main-button { background: var(--sage); }
+.empty-note { border: 1px dashed #ddcec4; background: #fffdfa; border-radius: 17px; padding: 14px; color: var(--muted); font-size: 12px; margin-top: 14px; }
+
+/* Keep actions close to their context; the profile lives in the 小屋 tab. */
+.top-actions { display: none; }
+.sheet { top: 50%; bottom: auto; transform: translate(-50%, -50%); border-radius: 25px; max-height: min(720px, 88vh); }
+.sheet .handle { display: none; }
+.swap-options { display: grid; gap: 9px; margin: 18px 0; }
+.swap-option { display: flex; align-items: center; gap: 10px; width: 100%; border: 1px solid var(--line); background: #fff; padding: 11px; border-radius: 14px; text-align: left; color: var(--ink); }
+.swap-option.selected { border-color: #f5bca8; background: var(--coral-soft); }
+.swap-option small { color: var(--muted); display: block; margin-top: 2px; font-size: 10px; }
+.swap-option .person { flex: none; }
+
+/* Titles should speak for themselves; only dates and real status need a caption. */
+.eyebrow { display: none; }
+.home-switch b::after { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 0 3px 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); }
+.edit-schedule { border: 0; background: var(--coral-soft); color: var(--coral); padding: 8px 10px; border-radius: 10px; font-size: 11px; font-weight: 800; }
+.schedule-form { display: grid; gap: 9px; margin: 18px 0; }
+.schedule-form label { display: grid; grid-template-columns: 42px 1fr; align-items: center; margin: 0; }
+.schedule-form select { margin: 0; }
+.rotation-button { border: 0; background: #f4f0ed; color: #655c55; border-radius: 11px; padding: 10px; font-size: 11px; font-weight: 700; }
+
+/* A single rhythm for every page and every content block. */
+.page-title, .intro { padding-top: 28px; padding-bottom: 28px; }
+.page-title h1, .intro h1 { font-size: 30px; line-height: 1.2; margin-bottom: 8px; }
+.section { margin-top: 32px; }
+.section-head { min-height: 25px; align-items: center; margin-bottom: 12px; }
+.section-head h2 { font-size: 20px; line-height: 25px; }
+.section-head .text-btn { align-self: center; }
+.section + .section { margin-top: 32px; }
+.rotation-button { display: none; }
+
+/* Override the old desktop grid's per-section exceptions. */
+.page > .section,
+.page.active#today > .section,
+.page.active#today > .section:nth-of-type(1),
+.page.active#today > .section:nth-of-type(2),
+.page.active#today > .section:nth-of-type(3) { margin-top: 32px !important; padding-top: 0 !important; }
+.page > .hero-card + .section,
+.page > .chore-card + .section,
+.page > .house-card + .section { margin-top: 32px !important; }
+
+/* Less generated-dashboard, more everyday utility. */
+body { background: #fffdfb; }
+.topbar { background: #fffdfb; backdrop-filter: none; }
+.hero-card, .chore-card, .house-card { background: #fff; box-shadow: none; border-color: var(--line); }
+.hero-card:after { display: none; }
+.hero-card .main-button { background: var(--coral); }
+.card-top, .hero-top { position: static; }
+.eyebrow { letter-spacing: .06em; color: #9d8d84; }
+.chip, .supply em, .pacts em { border-radius: 8px; }
+.list-card, .activity, .schedule, .pacts, .memory-mini { box-shadow: none; }
+.section { margin-top: 29px; }
+.photo-card { min-height: 132px; border-radius: 15px; }
+.nav { background: #fff; backdrop-filter: none; box-shadow: 0 8px 28px rgba(54, 37, 27, .12); border-radius: 18px; }
+.nav button { border-radius: 13px; }
